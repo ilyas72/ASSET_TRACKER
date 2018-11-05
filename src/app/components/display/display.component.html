@@ -1,62 +1,65 @@
-<form #theUserForm="ngForm" (ngSubmit)=processForm(theUserForm) class="form">
-  
+<html>
   <mat-card class="card1">
     <div class="user" fxLayoutAlign="center">
       <h1>{{userName}}</h1>
     </div>
     
     <div class="id" fxLayoutAlign="center">
-      ID NUMBER: {{userId}} <br><br>
+      ID: {{userId}} <br><br>
       EMAIL: {{userEmail}}
     </div>    
-    
-    <div class= "editDel" fxLayoutAlign="center" fxLayoutGap="40px">          
-      <button mat-raised-button (click)="saveMyDetails()" type="submit" [disabled]="theUserForm.invalid">
-        <span>Edit</span>
-      </button>
-
-      <button mat-raised-button onclick="return confirm('Are you sure?'), history.go(0)" VALUE="Refresh" color="warn" (click)="deleteMe()">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div> 
   </mat-card><br>
-</form>
-  
   
   <div fxLayoutAlign="center" fxLayoutGap="40px" class="button">          
     <button mat-raised-button color="primary" type="" (click)="loan()">
       <mat-icon>unarchive</mat-icon>
-      <span> Loan Item</span>
+      <span> LOAN Item</span>
     </button>
 
     <button mat-raised-button color="primary" type="" (click)="return()">
-      <span>Return Item </span>
+      <span>RETURN Item </span>
       <mat-icon>archive</mat-icon>
     </button>
-  </div> 
+  </div><br><br>
 
-<!-- <form #theUserForm="ngForm" (ngSubmit)=processForm(theUserForm)>
-    <h1>Edit</h1>
+  <form #theEditForm="ngForm" (ngSubmit)=processForm(theEditForm)>
     <mat-card class="custom">
       <div fxLayout="column" fxLayoutGap="15px">
-        <mat-form-field>
-          <input matInput name="name" placeholder="{{userName}}" ngModel required>
-            <mat-error>
-              Edit {{userName}}
-            </mat-error>
-          </mat-form-field>
+      <h3>Edit user details</h3>
+    <mat-form-field>
+           
+    <input matInput name="name" placeholder="{{userName}}" ngModel>
+      <mat-error>
+        Edit {{userName}}
+      </mat-error>
+    </mat-form-field>
              
-        <mat-form-field>
-          <input matInput name="email" placeholder="{{userEmail}}" required email ngModel>
+    <mat-form-field>
+      <input matInput name="email" placeholder="{{userEmail}}" email ngModel>
+        <mat-error>
+          Edit {{userEmail}}
+        </mat-error>
+      </mat-form-field><br>
+
+      <mat-form-field>
+          <input matInput name="password" placeholder="Password" email ngModel>
             <mat-error>
-                Edit {{userEmail}}            </mat-error>
+              Edit {{userPassword}}
+            </mat-error>
           </mat-form-field><br>
-      
-        </div>
-         
-        <button mat-raised-button onClick="history.go(0)" VALUE="Refresh" color="primary" type="submit" [disabled]="theUserForm.invalid">
-          <span>Submit </span>
-          <mat-icon>send</mat-icon>
+    </div>
+
+    <div class= "editDel" fxLayoutAlign="center" fxLayoutGap="40px">          
+      <button mat-raised-button onclick="return confirm('Are you sure?'), history.go(0)" VALUE="Refresh"  color="primary" type="submit" [disabled]="theEditForm.invalid">
+        <span>Update </span>
+        <mat-icon>send</mat-icon>
+      </button>
+
+      <button mat-raised-button onclick="return confirm('Are you sure?'), history.go(0)" VALUE="Refresh" color="warn" (click)="deleteMe()">
+        <mat-icon>delete</mat-icon>
         </button>
+      </div> 
+
     </mat-card>
-  </form> -->
+  </form>
+</html>

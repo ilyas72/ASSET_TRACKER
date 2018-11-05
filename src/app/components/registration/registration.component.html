@@ -1,36 +1,57 @@
-<h2>Login as:</h2>
-  <div *ngFor="let item of myList; let i=index" class="login">
-    <button type="button" class="del-button" (click)="selectUser(i)">
-
-        <span class="item-name">{{item.name}} <br> {{item.email}}</span>
-
-    </button>
-</div>
-
-<form #AssetTracker="ngForm" (ngSubmit)=processForm(AssetTracker) class="form">
-    <h1>Register</h1>
+<html>
+  <form #AssetTracker="ngForm" (ngSubmit)=processForm(AssetTracker) class="form">
+    <h1>
+      <mat-icon>how_to_reg</mat-icon> Register
+    </h1>
+      
     <mat-card class="custom">
       <div fxLayout="column" fxLayoutGap="15px">
         <mat-form-field>
           <input matInput name="name" placeholder="Name" ngModel required>
-            <mat-error>
-              Please enter your name
-            </mat-error>
-          </mat-form-field>
+          <mat-error>
+            Please enter name
+          </mat-error>
+        </mat-form-field>
              
         <mat-form-field>
           <input matInput name="email" placeholder="Email" required email ngModel>
-            <mat-error>
-              Please enter valid email address (eg.john@gmail.com)
-            </mat-error>
-          </mat-form-field><br>
-      
-        </div>
+          <mat-error>
+            Please enter valid email address (eg.john@gmail.com)
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input type="password" matInput name="password" placeholder="Password" minlength=8 required ngModel
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+          <mat-error>
+            Password must contain at least 8 characters, including upper/lowercase and numbers.
+          </mat-error>
+        </mat-form-field><br>
+      </div>
          
-        <button mat-raised-button onClick="history.go(0)" VALUE="Refresh" color="primary" type="submit" [disabled]="AssetTracker.invalid">
-          <span>ADD USER </span>
-          <mat-icon>add</mat-icon>
+      <!-- <button mat-raised-button onClick="history.go(0)" VALUE="Refresh" color="primary" type="submit" [disabled]="AssetTracker.invalid">
+        <span>Submit </span>
+        <mat-icon>add</mat-icon>
+      </button> -->
+
+      <div fxLayoutAlign="space-between" fxLayoutGap="10px">
+        <button mat-raised-button color="warn" type="reset">
+          <mat-icon>clear</mat-icon>
+          <span>Clear</span>
         </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="AssetTracker.invalid">
+          <span>Submit </span>
+          <mat-icon>send</mat-icon>
+        </button>
+      </div> 
     </mat-card>
   </form><br>
+</html>
 
+<!-- <h2>Login as:</h2>
+    <div *ngFor="let item of myList; let i=index" class="login">
+      <button type="button" class="del-button" (click)="selectUser(i)">
+        <span class="item-name">{{item.name}} <br> {{item.email}}</span>
+      </button>
+    </div> -->

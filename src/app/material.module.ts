@@ -11,12 +11,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule} from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 const MODULES = [
     FlexLayoutModule,
     MatToolbarModule, MatInputModule, MatFormFieldModule, 
-    MatButtonModule, MatCardModule, MatTabsModule,
+    MatButtonModule, MatCardModule, MatTabsModule, MatMenuModule,
     MatIconModule, MatSliderModule, MatRadioModule, MatDatepickerModule
 ];
 

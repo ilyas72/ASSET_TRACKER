@@ -1,6 +1,5 @@
 <form #AssetTracker="ngForm" (ngSubmit)=processForm(AssetTracker)>
     <mat-card>
-
         <mat-toolbar>
             <div fxLayoutAlign="start center" fxLayoutGap="15px">
               <img src="assets/archive.png"  class="logo" alt="">
@@ -8,58 +7,46 @@
             </div>
         </mat-toolbar>
 
-
         <div class="id" fxLayoutAlign="center">
-                <h1>{{userName}} {{assetIn}}</h1>
-            </div>  
-           <div fxLayout="column" fxLayoutGap="15px"><br>
-    
-         </div>
-       
-         <form method="POST" action="/upload" enctype="multipart/form-data">
-
-            <table>
-                <tr>
+            <h1>{{userName}} {{assetIn}}</h1>
+        </div>  
+           
+        <div fxLayout="column" fxLayoutGap="15px"><br></div>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <table>
+                    <tr>
                         <td>Select item:</td>
                     </tr><br>
-                <tr>
-                    <td>Date:</td>
-                    <td> <input type="date" name="upload-date"> </td>
-                </tr>
-                <tr>
-                    <td>Comments:</td>
-                    <td> 
-                        <textarea name="comments" cols="30" rows="5"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>File:</td>
-                    <td>
-                        
-                        <input type="file" name="picture" accept="image/*" multiple>
-                       
+                
+                    <tr>
+                        <td>Date:</td>
+                        <td><input type="date" name="upload-date"></td>
+                    </tr>
                     
+                    <tr>
+                        <td>Comments:</td>
+                        <td><textarea name="comments" cols="30" rows="5"></textarea></td>
+                    </tr>
+                
+                    <tr>
+                        <td>File:</td>
+                        <td>
+                            <input type="file" name="picture" accept="image/*" multiple>
                         <!-- <input type="file" name="picture" accept="image/*"> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td> <button type="submit">Add</button> </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td> <button type="submit">Add</button> </td>
+                    </tr>
+                </table>
+            </form><br>
 
-        </form><br>
-
-         <div fxLayoutAlign="space-between" fxLayoutGap="10px">
-
-               <button mat-raised-button color="primary" type="submit" [disabled]="AssetTracker.invalid">
-                   <span>Submit </span>
-                   <mat-icon>send</mat-icon>
-   
-               </button>
-           </div> 
-       </mat-card>
-   </form> 
-
-   
-   
+        <div fxLayoutAlign="space-between" fxLayoutGap="10px">
+            <button mat-raised-button color="primary" type="submit" [disabled]="AssetTracker.invalid">
+                <span>Submit </span>
+                <mat-icon>send</mat-icon>
+            </button>
+        </div> 
+    </mat-card>
+</form>   

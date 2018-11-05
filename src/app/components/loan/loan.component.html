@@ -17,23 +17,22 @@
                     <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Loan Date" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
+                </mat-form-field>
 
-            <mat-form-field>
-                <mat-select placeholder="Item">
-                    <mat-option *ngFor="let item of items" [value]="item.value" required>
-                        {{item.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Item">
+                       <mat-option *ngFor="let item of items" [value]="item.value" required>
+                            {{item.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
 
-            <div fxLayoutAlign="space-between" fxLayoutGap="1px"><br>
-                <button mat-button color="primary" type="reset">
-                    <mat-icon>add</mat-icon>
-                    <span>Add more item</span>   
-                </button>
-            </div>
-
+                <div fxLayoutAlign="space-between" fxLayoutGap="1px"><br>
+                    <button mat-button color="primary" type="reset">
+                        <mat-icon>add</mat-icon>
+                        <span>Add more item</span>   
+                    </button>
+                </div>
             </div>
 
             <div fxLayoutAlign="space-between" fxLayoutGap="10px">

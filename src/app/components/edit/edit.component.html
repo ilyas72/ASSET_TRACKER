@@ -1,0 +1,56 @@
+<html>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+  <div class="container">
+    <div class="avatar-flip">
+      <img src="assets/fatimah.png" height="160" width="150">
+      <a href="https://imgflip.com/gif/2lp1n5"><img src="https://i.imgflip.com/2lp1n5.gif" title="made at imgflip.com" height="150" width="300" /></a>
+    </div>
+
+    <form #theEditForm="ngForm" (ngSubmit)=processForm(theEditForm)>
+      <mat-card class="custom">
+        <div fxLayout="column" fxLayoutGap="15px">
+        <h3>Edit user details</h3>
+      
+      <mat-form-field>
+        <input matInput name="name" placeholder="{{userName}}" ngModel>
+          <mat-error>
+            Edit {{userName}}
+          </mat-error>
+      </mat-form-field>
+               
+      <mat-form-field>
+          <input matInput name="email" placeholder="{{userEmail}}" email ngModel>
+            <mat-error>
+              Edit {{userEmail}}
+            </mat-error>
+          </mat-form-field><br>
+        </div>
+ 
+        <div class= "editDel" fxLayoutAlign="center" fxLayoutGap="40px">          
+          <button mat-raised-button color="primary" type="" (click)="navigateToChangePassword()">
+            <span>Change Password</span>
+          </button>
+ 
+          <button mat-raised-button color="primary" type="submit" [disabled]="theEditForm.invalid">
+            <span>Update </span>
+            <mat-icon>send</mat-icon>
+          </button>
+  
+          <button color="warn" onclick="return confirm('Are you sure you want to delete this profile?');">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div> 
+      </mat-card>
+    </form>
+  </div>
+</html>

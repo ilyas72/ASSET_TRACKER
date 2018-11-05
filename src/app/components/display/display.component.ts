@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegService } from '../../services/reg.service';
 
@@ -12,7 +12,6 @@ export class DisplayComponent implements OnInit {
 
   constructor(private route:Router, private mySvc:RegService) { }
   
-  //Declare
   userId : number;
   userEmail : string;
   userName : string;
@@ -25,7 +24,7 @@ export class DisplayComponent implements OnInit {
 
   }
 
-  //LoanItem button function --> LoanPage
+//LoanItem button function --> LoanPage
   loan() {
     console.log("loan");
     
@@ -33,7 +32,15 @@ export class DisplayComponent implements OnInit {
   
   }
 
+//ReturnItem button --> ReturnPage
+  return() {
+    console.log("return"); 
+  
+    this.route.navigate(['/Return']);
+   
+  }
 
+//delete user
   deleteMe() {
     console.log("delete me ", this.userId);
 
@@ -45,26 +52,18 @@ export class DisplayComponent implements OnInit {
     this.route.navigate(['/Registration'])
   }
 
-  // create a new form to update user details and call it
-  // saveMyDetails() {
-  //   console.log("save me ", this.userId);
+//edit user  
+  processForm(theForm:NgForm){
+    console.log("save me ", this.userId);
 
-  //   this.mySvc.modifyUser(theUserForm.value, this.userId)
-  //     .subscribe((data: any) => {
-  //       console.log("User %s modified.", this.userId)
-  //     })
+    this.mySvc.modifyUser(theForm.value, this.userId)
+      .subscribe((data: any) => {
+        console.log("User %s modified.", this.userId)
+      })
       
-  //   this.route.navigate(['/Registration'])
-  // }
-
-  //ReturnItem button --> ReturnPage
-  return() {
-    console.log("return"); 
-
-  this.route.navigate(['/Return']);
-
-  
+    this.route.navigate(['/Registration'])
   }
+
 
 
 }

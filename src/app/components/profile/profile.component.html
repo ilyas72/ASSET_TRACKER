@@ -1,0 +1,38 @@
+<html>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateToResetPassword()">
+      <mat-icon>change_history</mat-icon>
+      <span>Edit Profile</span>
+    </button>
+  
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+  <div class="container">
+      <div class="avatar-flip">
+        <img src="assets/fatimah.png" height="160" width="150">
+       <a href="https://imgflip.com/gif/2lp1n5"><img src="https://i.imgflip.com/2lp1n5.gif" title="made at imgflip.com" height="150" width="300" /></a>
+      </div>
+      <h2>Fatimah</h2>
+      <h4>fatimah@gmail.com</h4>
+    </div>
+
+    <div fxLayoutAlign="center" fxLayoutGap="40px" class="button">          
+    <button mat-raised-button color="primary" type="" (click)="loan()">
+      <mat-icon>unarchive</mat-icon>
+      <span> LOAN Item</span>
+    </button>
+  
+    <button mat-raised-button color="primary" type="" (click)="return()">
+      <span>RETURN Item </span>
+      <mat-icon>archive</mat-icon>
+    </button>
+  </div><br><br>
+</html>

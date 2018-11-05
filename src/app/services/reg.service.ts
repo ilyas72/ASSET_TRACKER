@@ -47,7 +47,7 @@ export class RegService {
 
   modifyUser(user: any, userId: number ): Observable<any> {
     console.log(">>>" + user);
-    return this.http.put<any>("http://localhost:3000/user", user);
+    return this.http.put<any>(`http://localhost:3000/user/${userId}`, user);
   }
 
 }

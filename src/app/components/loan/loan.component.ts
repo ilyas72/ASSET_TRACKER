@@ -23,7 +23,6 @@ export class LoanComponent implements OnInit {
     {value: 'item-3', viewValue: 'Cable'}
   ];
 
-    //Declare
     userId : number;
     userEmail : string;
     userName : string;

@@ -1,0 +1,46 @@
+<html>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+      
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+  </mat-menu>
+
+  <div class="container">
+    <form #theEditForm="ngForm" (ngSubmit)=processForm(theEditForm)>
+      <mat-card class="custom">
+        <div fxLayout="column" fxLayoutGap="15px">
+          <h1>Change Password</h1><br>
+          <mat-form-field>
+            <div>
+              <input type="password" matInput name="password" placeholder="Current Password" required email ngModel>
+            </div>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <div>
+              <input type="password" matInput name="password" placeholder="New Password" required email ngModel>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field>
+            <div>
+              <input type="password" matInput name="password" placeholder="Confirm Password" required email ngModel>
+            </div>
+          </mat-form-field>
+        </div>
+  
+        <div class= "editDel" fxLayoutAlign="center" fxLayoutGap="40px">          
+          <button mat-raised-button color="primary" type="" (click)="navigateToProfile()">Submit 
+            <mat-icon>send</mat-icon>
+          </button>
+        </div> 
+
+      </mat-card>
+    </form>
+  </div>
+</html>
