@@ -5,11 +5,11 @@
         <form #AssetTracker="ngForm" (ngSubmit)=processForm(AssetTracker)>
           <img src="assets/AssetTracker.gif"  class="logo" alt="">   
           <h1>Login</h1>
-        
+
           <div>
-            <div>
+            <!-- <div>
               <input type="text" name="name" placeholder="Name" ngModel required>
-            </div>
+            </div> -->
             
             <div>
               <input type="email" matInput name="email" placeholder="Email" required email ngModel>
@@ -29,6 +29,10 @@
     </div>
   </body>
 </html>
+
+
+
+
 
   <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>

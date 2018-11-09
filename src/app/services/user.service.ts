@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 })
 
 
-export class RegService {
+export class UserService {
   userId: number;
   userName: string;
   userEmail: string;
@@ -29,8 +29,17 @@ export class RegService {
     return this.http.post<any>("http://localhost:3000/Register", user);
   }
 
-  selectUser(myUser: any) {
+  loginUser(user: any): Observable<any> {
+    console.log(">>>" + user);
+    return this.http.post<any>("http://localhost:3000/Login", user);
+  }
 
+  changePassword(user: any): Observable<any> {
+    console.log(">>>" + user);
+    return this.http.post<any>("http://localhost:3000/Change", user);
+  }
+
+  selectUser(myUser: any) {
     this.userId = myUser.user_id;
     console.log ("svc user =>", this.userId);
 

@@ -10,14 +10,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule} from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatMenuModule} from '@angular/material/menu';
-
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const MODULES = [
     FlexLayoutModule,
-    MatToolbarModule, MatInputModule, MatFormFieldModule, 
+    MatToolbarModule, MatInputModule, MatFormFieldModule, MatGridListModule,
     MatButtonModule, MatCardModule, MatTabsModule, MatMenuModule,
     MatIconModule, MatSliderModule, MatRadioModule, MatDatepickerModule
 ];

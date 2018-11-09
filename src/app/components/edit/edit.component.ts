@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegService } from '../../services/reg.service';
+import { UserService } from '../../services/user.service';
 import { UserDetails } from '../../models/userdetail';
 
 @Component({
@@ -13,7 +13,7 @@ export class EditComponent implements OnInit {
   myList:any[] = [];
   minDate = new Date(1950, 0, 1);
   maxDate = new Date(2000, 0, 1);
-  constructor(private route:Router, private mySvc:RegService) { }
+  constructor(private route:Router, private mySvc:UserService) { }
   
   userId : number;
   userEmail : string;

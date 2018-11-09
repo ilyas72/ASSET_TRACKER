@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegService } from '../../services/reg.service';
+import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -10,18 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private route:Router, private mySvc:RegService) { }
+  constructor(private route:Router, private mySvc:UserService) { }
   
   userId : number;
   userEmail : string;
   userName : string;
 
-
   ngOnInit() {
     this.userId = this.mySvc.userId;
     this.userEmail = this.mySvc.userEmail;
     this.userName = this.mySvc.userName;
-
   }
 
 //LoanItem button function --> LoanPage

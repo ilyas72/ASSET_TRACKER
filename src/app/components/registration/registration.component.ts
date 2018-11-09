@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegService } from '../../services/reg.service';
+import { UserService } from '../../services/user.service';
 import { UserDetails } from '../../models/userdetail';
 
 @Component({
@@ -13,9 +13,9 @@ export class RegistrationComponent implements OnInit {
 myList:any[] = [];
 minDate = new Date(1950, 0, 1);
 maxDate = new Date(2000, 0, 1);
-constructor(private route:Router, private mySvc:RegService) { }
+constructor(private route:Router, private mySvc:UserService) { }
   ngOnInit() {
-    // this.getAllUsers();
+    this.getAllUsers();
   }  
 
   processForm(theForm:NgForm) {
@@ -26,27 +26,27 @@ constructor(private route:Router, private mySvc:RegService) { }
       .subscribe((result:any)=>{
         console.log(result);
     });
-    // this.getAllUsers();
+    this.getAllUsers();
     theForm.resetForm();
     this.route.navigate(['/Profile']);
   }
 
-  // getAllUsers() {
-  //   this.myList = [];
-  //   this.mySvc.getAllUsers()
-  //   .subscribe((data: any) => {
-  //     console.log("--> ",data);
-  //     data.forEach(element => {
-  //       this.myList.push(element);
-  //     });
-  //     console.log("myList => ",this.myList)
-  //   })
-  // }
+  getAllUsers() {
+    this.myList = [];
+    this.mySvc.getAllUsers()
+    .subscribe((data: any) => {
+      console.log("--> ",data);
+      data.forEach(element => {
+        this.myList.push(element);
+      });
+      console.log("myList => ",this.myList)
+    })
+  }
 
-  // selectUser(num: any) {
-  //    console.log("selected => ", this.myList[num]);
-  //    this.mySvc.selectUser(this.myList[num]);
-  //    this.route.navigate(['/Display']);
-  // }
+  selectUser(num: any) {
+     console.log("selected => ", this.myList[num]);
+     this.mySvc.selectUser(this.myList[num]);
+     this.route.navigate(['/Profile']);
+  }
 
 }

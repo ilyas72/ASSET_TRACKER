@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegService } from '../../services/reg.service';
+import { ChangePasswordService } from '../../services/change-password.service';
 import { UserDetails } from '../../models/userdetail';
 
 @Component({
@@ -15,7 +15,7 @@ export class ChangeComponent implements OnInit {
   myList:any[] = [];
   minDate = new Date(1950, 0, 1);
   maxDate = new Date(2000, 0, 1);
-  constructor(private route:Router, private mySvc:RegService) { }
+  constructor(private route:Router, private mySvc:ChangePasswordService) { }
   
   userId : number;
   userEmail : string;
@@ -30,56 +30,56 @@ export class ChangeComponent implements OnInit {
   }
 
 //LoanItem button function --> LoanPage
-  loan() {
-    console.log("loan");
+  // loan() {
+  //   console.log("loan");
     
-    this.route.navigate(['/Loan']);
+  //   this.route.navigate(['/Loan']);
   
-  }
+  // }
 
 //ReturnItem button --> ReturnPage
-  return() {
-    console.log("return"); 
+  // return() {
+  //   console.log("return"); 
   
-    this.route.navigate(['/Return']);
+  //   this.route.navigate(['/Return']);
    
-  }
+  // }
 
 //delete user
-  deleteMe() {
-    console.log("delete me ", this.userId);
+  // deleteMe() {
+  //   console.log("delete me ", this.userId);
 
-    this.mySvc.removeUser(this.userId)
-      .subscribe((data: any) => {
-        console.log("User %s deleted.", this.userId)
-      })
+  //   this.mySvc.removeUser(this.userId)
+  //     .subscribe((data: any) => {
+  //       console.log("User %s deleted.", this.userId)
+  //     })
       
-    this.route.navigate(['/Registration'])
-  }
+  //   this.route.navigate(['/Registration'])
+  // }
 
-//edit user  
+//change user  
   processForm(theForm:NgForm){
     console.log("save me ", this.userId);
-
-    this.mySvc.modifyUser(theForm.value, this.userId)
+    console.log(theForm.value)
+    this.mySvc.changePassword(theForm.value)
       .subscribe((data: any) => {
-        console.log("User %s modified.", this.userId)
+        console.log("User password modified.")
       })
       
-    this.route.navigate(['/Registration'])
+    this.route.navigate(['/Profile'])
   }
 
-  navigateToResetPassword() {
-    this.route.navigate(['/Reset']);
-  }
+  // navigateToResetPassword() {
+  //   this.route.navigate(['/Reset']);
+  // }
 
-  navigateToResetPassword2() {
-    this.route.navigate(['/Reset2']);
-  }
+  // navigateToResetPassword2() {
+  //   this.route.navigate(['/Reset2']);
+  // }
 
-  logout() {
-    this.route.navigate(['/Home']);
-  }
+  // logout() {
+  //   this.route.navigate(['/Home']);
+  // }
 
 }
  
